@@ -13,14 +13,22 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="banner">People Demo Application</h1>
+        <h1 class="banner">Project Scheduling Algorithm</h1>
         <div class="section editor">
-            <label for="fname">First Name
-                <input id="fname" type="text" />
+            <label for="p_id">Project Id
+                <input id="p_id" type="text" />
             </label>
             <br />
-            <label for="lname">Last Name
-                <input id="lname" type="text" />
+            <label for="p_name">Project Name
+                <input id="p_name" type="text" />
+            </label>
+            <br />
+            <label for="t_id">Task Id
+                <input id="t_id" type="text" />
+            </label>
+            <br />
+            <label for="t_name">Task Name
+                <input id="t_name" type="text" />
             </label>
             <br />
             <button id="create">Create</button>
@@ -28,14 +36,17 @@
             <button id="delete">Delete</button>
             <button id="reset">Reset</button>
         </div>
-        <div class="people">
+        <div class="project">
             <table>
-                <caption>People</caption>
+                <caption>Project</caption>
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Update Time</th>
+                        <th>Project Id</th>
+                        <th>Project Name</th>
+                        <th>Task Id</th>
+                        <th>Task Name</th>
+                        <th>start date</th>
+                        <th>end date</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -2,6 +2,7 @@ from datetime import datetime
 
 # 3rd party modules
 from flask import make_response, abort
+from models import Project, ProjectSchema
 
 
 def get_timestamp():
@@ -9,23 +10,6 @@ def get_timestamp():
 
 
 # Data to serve with our API
-PEOPLE = {
-    "Farrell": {
-        "fname": "Doug",
-        "lname": "Farrell",
-        "timestamp": get_timestamp(),
-    },
-    "Brockman": {
-        "fname": "Kent",
-        "lname": "Brockman",
-        "timestamp": get_timestamp(),
-    },
-    "Easter": {
-        "fname": "Bunny",
-        "lname": "Easter",
-        "timestamp": get_timestamp(),
-    },
-}
 
 
 def read_all():
@@ -35,9 +19,14 @@ def read_all():
     :return:        json string of list of people
     """
     # Create the list of people from our data
-    return [PEOPLE[key] for key in sorted(PEOPLE.keys())]
+    project = Project.query.order_by(Project.p_id).all()
 
+    # Serialize the data for the response
+    person_schema = ProjectSchema(many=True)
+    data = person_schema.dump(project)
+    return data
 
+'''
 def read_one(lname):
     """
     This function responds to a request for /api/people/{lname}
@@ -124,3 +113,4 @@ def delete(lname):
         abort(
             404, "Person with last name {lname} not found".format(lname=lname)
         )
+'''
