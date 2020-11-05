@@ -1,6 +1,5 @@
 import os
-from config import db
-from models import Project
+from server import db
 
 # Data to initialize database with
 project = [
@@ -9,8 +8,8 @@ project = [
 ]
 
 # Delete database file if it exists currently
-if os.path.exists("dbo.project.db"):
-    os.remove("dbo.project.db")
+if os.path.exists("project.db"):
+    os.remove("project.db")
 
 # Create the database
 db.create_all()

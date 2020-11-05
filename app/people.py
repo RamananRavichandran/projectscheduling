@@ -1,8 +1,7 @@
 from datetime import datetime
 
 # 3rd party modules
-from flask import make_response, abort
-from models import Project, ProjectSchema
+from app.models import Project, ProjectSchema
 
 
 def get_timestamp():
