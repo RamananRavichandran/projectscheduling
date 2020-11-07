@@ -10,8 +10,7 @@ import os
 app = flask.Flask(__name__)
 
 print(os.environ['APP_SETTINGS'])
-app.config.from_pyfile('app//myconfig.py')
-print(app.config.from_pyfile('app//myconfig.py'))
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 db = SQLAlchemy(app)
 

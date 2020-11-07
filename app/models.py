@@ -1,5 +1,5 @@
 from server import db
-from app.myconfig import ma
+from app.config import ma
 from sqlalchemy import UniqueConstraint
 
 
